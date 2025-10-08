@@ -1,18 +1,9 @@
 "use client";
-
-import { useState } from "react";
+import { useAuth } from "./context/authContext";
 import UserHomeContainer from "@/components/Features/users/user-home/UserHomeContainer";
+import HomeContainer from "@/components/Features/home/HomeContainer";
 
 export default function HomePage() {
-  const [showUserHome, setShowUserHome] = useState(false);
-
-  if (showUserHome) {
-    return <UserHomeContainer />;
-  }
-
-  return (
-    <div>
-      
-    </div>
-  );
+  const { isLoggedIn } = useAuth();
+  return isLoggedIn ? <UserHomeContainer /> : <HomeContainer />;
 }
