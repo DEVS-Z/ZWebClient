@@ -1,6 +1,5 @@
 import LoginView from "./LoginView";
 
-
-export default function LoginContainer(){
+export default function LoginPage(){
     return <LoginView/>
 }

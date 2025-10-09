@@ -1,9 +1,19 @@
 "use client";
+import { useEffect } from "react";
 import { useAuth } from "./context/authContext";
-import UserHomeContainer from "@/components/Features/users/user-home/UserHomeContainer";
-import HomeContainer from "@/components/Features/home/HomeContainer";
+import { useRouter } from "next/navigation";
 
-export default function HomePage() {
+export default function RootPage() {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? <UserHomeContainer /> : <HomeContainer />;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/(dashboard)/dashboard-home");
+    } else {
+      router.push("/home");
+    }
+  }, [isLoggedIn, router]);
+
+  return null;
 }

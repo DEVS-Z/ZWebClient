@@ -8,6 +8,7 @@ export default function NavbarView(){
                     <a href="/about" className="hover:text-green-400 transition">Sobre</a>
                     <a href="/services" className="hover:text-green-400 transition">Servicios</a>
                     <a href="/contact" className="hover:text-green-400 transition">Contacto</a>
+                    <a href="/login" className="hover:text-green-400 transition">Login</a>
                 </div>
                 <button className="md:hidden text-gray-100 focus:outline-none">☰</button>
             </div>
