@@ -10,17 +10,11 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleLogin = async (formData: FormData) => {
-    const formHelp = new FormHelper()
-    let data = formHelp.getValues<ILogin>(formData)
-    console.log(data)
-    
-//   const User: ILogin = {
-//     correo: formData.get("email") as string,
-//     password: formData.get("password") as string,
-//   };
-
-  const fetchHelp = new Fetcher(); 
-  const res = await fetchHelp.Post(data, "/api/auth/login");
+  const formHelp = new FormHelper()
+  let data = formHelp.getValues<ILogin>(formData)
+  
+  const api = new Fetcher("https://api.example.com");
+  const res = await api.post("/login", data);
 
   if (res.ok) {
     const { token } = await res.json();
