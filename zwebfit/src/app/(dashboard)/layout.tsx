@@ -20,10 +20,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="flex min-h-screen">
-      <SidebarContainer />
       <div className="flex flex-col flex-1">
         <NavbarContainer />
-        <main className="flex-1 p-6">{children}</main>
+          <main className="bg-white flex-1 p-14">{children}</main>
         <FooterContainer />
       </div>
     </div>

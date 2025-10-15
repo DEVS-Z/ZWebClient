@@ -4,13 +4,13 @@ import LoginView from "./LoginView";
 import { useRouter } from "next/navigation";
 import { ILogin } from "@/models/modules/ILogin";
 import { Fetcher } from "@/lib/helpers/fetcher";
-import { formHelper } from "@/lib/helpers/formhelper";
+import { FormHelper } from "@/lib/helpers/formhelper";
 
 export default function LoginPage() {
   const router = useRouter();
 
   const handleLogin = async (formData: FormData) => {
-    const formHelp = new formHelper()
+    const formHelp = new FormHelper()
     let data = formHelp.getValues<ILogin>(formData)
     console.log(data)
     
