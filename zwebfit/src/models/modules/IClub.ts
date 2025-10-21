@@ -4,6 +4,9 @@ export interface IClub {
   dateCreate? : Date;
   name: string;
   ownerId?: number;
-  country : string;
+  country? : string;
   tagName : string;
+  clubImage : string;
+  ownerName : string;
+  members? : number;
 }

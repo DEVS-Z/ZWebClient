@@ -2,11 +2,7 @@ import { IPlayer } from "@/models/modules/IPlayer";
 
 export default function PlayerView({ player }: { player: IPlayer }) {
   return (
-    <div
-      key={player.id}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-130"
-    >
-      {/* Imagen del jugador */}
+    <div key={player.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-130">
       <div className="relative h-75 bg-gradient-to-br from-blue-900 to-red-900">
         <img
           src={player.image}
