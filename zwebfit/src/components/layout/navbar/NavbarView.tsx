@@ -20,12 +20,12 @@ export default function NavbarView(){
         <div className="flex items-center gap-8 justify-end">
           {/* Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Solutions</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Community</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Resources</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Pricing</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Contact</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Link</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Solutions</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Community</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Resources</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Pricing</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Contact</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Link</a>
           </nav>
 
           {/* Botones */}
