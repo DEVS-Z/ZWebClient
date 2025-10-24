@@ -9,4 +9,5 @@ export interface CustomSelectProps {
   className?: string;
   placeholder?: string;
   select: CommonSelect2[];
+  name : string;
 }

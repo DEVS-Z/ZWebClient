@@ -1,11 +1,17 @@
 "use client";
 import { IClub } from "@/models/modules/IClub";
+import Select2DynamicContainer from "../../../../../common/select2/Select2Dynamic/Select2DynamicContainer";
+import { CustomSelectProps } from "@/models/common/select/ISelect";
+import { useState } from "react";
 
-export default function ClubFormAddView({onSubmit,
-}: {
-  onSubmit: (event: React.FormEvent<HTMLFormElement>, formData: FormData) => void;
-}) {
-  
+export default function ClubFormAddView({onSubmit, }: { onSubmit: (event: React.FormEvent<HTMLFormElement>, formData: FormData) => void;}) {
+  const [pais, setPais] = useState<string | number>("");
+
+  const paises = [
+    { value: "mx", label: "México" },
+    { value: "us", label: "Estados Unidos" },
+    { value: "es", label: "España" },
+  ];
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();                 
     const formData = new FormData(event.currentTarget);
@@ -30,12 +36,16 @@ export default function ClubFormAddView({onSubmit,
 
         <div>
           <label className="block font-medium text-gray-800 mb-1">País de origen</label>
-          <input
-            type="text"
-            name="country"
-            placeholder="Value"
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
-          />
+          <Select2DynamicContainer 
+        select2={{
+          name:"country",
+          value: pais,
+          onChange: setPais,
+          placeholder: "Selecciona un país",
+          className: "bg-white",
+          select: paises,
+        }}
+      />
         </div>
 
         <div>
