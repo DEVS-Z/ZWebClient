@@ -1,3 +1,4 @@
+"use client";
 import { IClub } from "@/models/modules/IClub";
 
 export default function ClubFormAddView({onSubmit,
@@ -12,7 +13,7 @@ export default function ClubFormAddView({onSubmit,
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 bg-gray-50 p-4 rounded-xl shadow-sm">
+    <div className="flex flex-col md:flex-row gap-6">
       <form onSubmit={handleSubmit} className="flex-1 bg-white border border-gray-200 rounded-xl p-6 space-y-4">
         <div>
           <label htmlFor="name" className="block font-medium text-gray-800 mb-1">

@@ -1,3 +1,4 @@
+"use client";
 import ClubAddView from "./ClubAddView";
 
 

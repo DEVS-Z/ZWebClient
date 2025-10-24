@@ -1,3 +1,4 @@
+"use client";
 import ClubFormAddView from "./ClubFormAddView";
 import { IClub } from "@/models/modules/IClub";
 
