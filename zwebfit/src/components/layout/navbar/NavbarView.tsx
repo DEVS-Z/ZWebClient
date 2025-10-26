@@ -1,17 +1,18 @@
 import Link from "next/link";
 
-export default function NavbarView(){
-    return(
+export default function NavbarView() {
+  return (
     <header className="bg-white border-b border-gray-200">
       <div className="w-full grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-8 h-30">
-        
+
         {/* IZQUIERDA: Logo */}
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
             <span className="text-white text-xs">⚽</span>
           </div>
-          <span className="text-xl font-semibold">ZFut</span>
+          <span className="text-xl font-bold text-black">ZFut</span>
         </div>
+
 
         {/* CENTRO (espaciador flexible) */}
         <div></div>
@@ -30,12 +31,22 @@ export default function NavbarView(){
 
           {/* Botones */}
           <div className="flex items-center gap-3">
-            <Link href="/login" className="px-4 py-2 text-sm text-gray-700 hover:text-gray-900">
+            <Link
+              href="/login"
+              className="px-4 py-2 text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-200 hover:text-black transition-colors"
+            >
               Sign in
             </Link>
-            <Link href="/login" className="px-4 py-2 text-sm bg-black text-white rounded hover:bg-gray-800">
-              Register
-            </Link>
+
+
+
+            <Link
+            href="/register"
+            className="px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors"
+          >
+            Register
+          </Link>
+
           </div>
         </div>
       </div>
@@ -43,5 +54,6 @@ export default function NavbarView(){
 
 
 
-    );
+  );
 }
+
