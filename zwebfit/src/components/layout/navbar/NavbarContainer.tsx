@@ -1,5 +1,11 @@
-import NavbarView from "./NavbarView";
+"use client";
+import PublicNavbarView from "./PublicNavbarView";
+import AppNavbarView from "./AppNavbarView";
 
-export default function NavbarContainer(){
-    return <NavbarView/>
+//CAMBIAR TRUE O FALSE PARA PROBAR NAVBAR PUBLICA O DE APP
+export default function NavbarContainer({ isLoggedIn = false }:
+    
+    
+    { isLoggedIn?: boolean }) {
+  return isLoggedIn ? <AppNavbarView /> : <PublicNavbarView />;
 }

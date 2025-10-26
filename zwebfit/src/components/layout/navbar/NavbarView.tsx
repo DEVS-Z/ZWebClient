@@ -1,3 +1,13 @@
+/*
+SE OMITIO ESTE HEADER, SE USA EL APPNAVBAR PARA LA NAVEGACION DEL USUARIO LOGUEADO
+SE USA EL PUBLICNAVBAR PARA LA NAVEGACION DEL USUARIO NO LOGUEADO
+
+
+
+
+:,)U
+
+
 import Link from "next/link";
 
 export default function NavbarView() {
@@ -5,7 +15,6 @@ export default function NavbarView() {
     <header className="bg-white border-b border-gray-200">
       <div className="w-full grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-8 h-30">
 
-        {/* IZQUIERDA: Logo */}
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
             <span className="text-white text-xs">⚽</span>
@@ -13,13 +22,9 @@ export default function NavbarView() {
           <span className="text-xl font-bold text-black">ZFut</span>
         </div>
 
-
-        {/* CENTRO (espaciador flexible) */}
         <div></div>
 
-        {/* DERECHA: Nav + Botones */}
         <div className="flex items-center gap-8 justify-end">
-          {/* Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Solutions</a>
             <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Community</a>
@@ -29,7 +34,6 @@ export default function NavbarView() {
             <a href="#" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Link</a>
           </nav>
 
-          {/* Botones */}
           <div className="flex items-center gap-3">
             <Link
               href="/login"
@@ -38,22 +42,16 @@ export default function NavbarView() {
               Sign in
             </Link>
 
-
-
             <Link
-            href="/register"
-            className="px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors"
-          >
-            Register
-          </Link>
-
+              href="/register"
+              className="px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors"
+            >
+              Register
+            </Link>
           </div>
         </div>
       </div>
     </header>
-
-
-
   );
 }
-
+*/
