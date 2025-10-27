@@ -1,6 +1,8 @@
+// src/models/modules/IEvent.ts
 export interface IEvent {
   id: string;
-  date: string; 
+  month: string;
+  day: number;
   time: string;
   title: string;
   location: string;
