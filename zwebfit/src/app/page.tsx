@@ -9,9 +9,9 @@ export default function RootPage() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push("/(dashboard)/dashboard-home");
+      router.push("/events");
     } else {
-      router.push("/home");
+      router.push("/events");
     }
   }, [isLoggedIn, router]);
 

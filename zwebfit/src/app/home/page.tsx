@@ -1,6 +1,5 @@
 import PlayerCardContainer from "@/components/feactures/module/players/playerCard/PlayerCardContainer";
 import ClubHomePage from "../(dashboard)/(features)/(club)/club-home/page";
-import SessionHomePage from "../(dashboard)/(features)/(session)/session-home/page";
 import ClubAddPage from "../(dashboard)/(features)/(club)/club-add/page";
 
 export default function PublicHomePage() {

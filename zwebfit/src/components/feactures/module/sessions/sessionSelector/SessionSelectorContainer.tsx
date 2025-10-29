@@ -7,10 +7,10 @@ export default function SessionSelectorContainer() {
   const router = useRouter();
   const pathname = usePathname();
   
-  // Determine active tab based on current route
   const getActiveTab = () => {
     if (pathname === '/sessions') return 'Sessions';
     if (pathname === '/events') return 'Events';
+    if (pathname === '/roaster') return 'Roaster';
     return 'Roaster';
   };
 
@@ -26,9 +26,7 @@ export default function SessionSelectorContainer() {
     } else if (tab === 'Events') {
       router.push('/events');
     } else if (tab === 'Roaster') {
-      // Add your roaster route here when ready
-      // router.push('/roaster');
-      console.log('Roaster navigation not yet implemented');
+      router.push('/roaster');
     }
   };
 

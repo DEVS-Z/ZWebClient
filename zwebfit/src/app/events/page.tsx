@@ -5,6 +5,7 @@ import SessionSelectorContainer from "@/components/feactures/module/sessions/ses
 import EventListContainer from "@/components/feactures/module/events/eventList/EventListContainer";
 import CreateEventButton from "@/components/feactures/module/sessions/createEventButton/CreateEventButton";
 import SessionDetailsCrudContainer from "@/components/feactures/module/sessions/sessionDetailsCrud/SessionDetailsCrudContainer";
+import SessionDetailsRead from "@/components/feactures/module/sessions/sessionDetailsCrud/SessionDetailsRead";
 import { ISessionDetails, ISessionPlayer } from "@/models/modules/ISessionDetails";
 
 // Mock players data
@@ -46,8 +47,64 @@ const mockPlayers: ISessionPlayer[] = [
   },
 ];
 
+// Mock session data for testing read-only view
+const mockSessionData: ISessionDetails = {
+  id: '1',
+  eventType: 'Training Session',
+  location: 'Los Xolos Stadium',
+  date: '2025-04-01',
+  startingTime: '12:00',
+  finishingTime: '14:00',
+  note: 'Bring your equipment to do hard training',
+  players: [
+    {
+      id: '1',
+      name: 'Chicharito Hernandez',
+      age: 37,
+      position: 'Delantero',
+      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
+    },
+    {
+      id: '2',
+      name: 'Chicharito Hernandez',
+      age: 37,
+      position: 'Delantero',
+      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
+    },
+    {
+      id: '3',
+      name: 'Chicharito Hernandez',
+      age: 37,
+      position: 'Delantero',
+      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
+    },
+    {
+      id: '4',
+      name: 'Chicharito Hernandez',
+      age: 37,
+      position: 'Delantero',
+      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
+    },
+    {
+      id: '5',
+      name: 'Chicharito Hernandez',
+      age: 37,
+      position: 'Delantero',
+      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
+    },
+    {
+      id: '6',
+      name: 'Chicharito Hernandez',
+      age: 37,
+      position: 'Delantero',
+      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
+    },
+  ],
+};
+
 export default function EventsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isReadModalOpen, setIsReadModalOpen] = useState(false);
   const [editingSession, setEditingSession] = useState<ISessionDetails | undefined>(undefined);
 
   const handleCreateEvent = () => {
@@ -65,6 +122,10 @@ export default function EventsPage() {
     setIsModalOpen(false);
   };
 
+  const handleTestReadView = () => {
+    setIsReadModalOpen(true);
+  };
+
   return (
     <main className="p-6 flex flex-col gap-6">
       <SessionSelectorContainer />
@@ -72,12 +133,21 @@ export default function EventsPage() {
       {/* Events header with Create Event button */}
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold text-black">Events</h2>
-        <CreateEventButton onClick={handleCreateEvent} />
+        <div className="flex gap-3">
+          {/* Test button for read-only view - TEMPORARY */}
+          <button
+            onClick={handleTestReadView}
+            className="px-4 py-2 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
+          >
+            Test Player Behavior of Details
+          </button>
+          <CreateEventButton onClick={handleCreateEvent} />
+        </div>
       </div>
 
       <EventListContainer />
 
-      {/* Session Details Modal */}
+      {/* Session Details CRUD Modal */}
       <SessionDetailsCrudContainer
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -85,6 +155,13 @@ export default function EventsPage() {
         availablePlayers={mockPlayers}
         onSave={handleSave}
         onDelete={editingSession ? handleDelete : undefined}
+      />
+
+      {/* Session Details Read-Only Modal - TEMPORARY FOR TESTING */}
+      <SessionDetailsRead
+        isOpen={isReadModalOpen}
+        sessionData={mockSessionData}
+        onClose={() => setIsReadModalOpen(false)}
       />
     </main>
   );
