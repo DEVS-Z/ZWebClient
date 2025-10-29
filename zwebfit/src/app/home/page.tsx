@@ -6,7 +6,7 @@ import ClubAddPage from "../(dashboard)/(features)/(club)/club-add/page";
 export default function PublicHomePage() {
     return (
         <div className="w-full">
-            <ClubAddPage />
+            <SessionHomePage />
         </div>
     );
 }
