@@ -17,8 +17,10 @@ export default function LoginPage() {
   
   const res =  await service.Login(data as ILogin)
   console.log(res)
-  if (res.status == 200) {
-    const { token } = res.data;
+  if (res.status === 200 && res.data) {
+  // El token está dentro de "data" que es el JWT
+    const token = res.data;
+    console.log("Token a guardar:", token);
     localStorage.setItem("token", token);
     router.push("/dashboard-home");
   } else {

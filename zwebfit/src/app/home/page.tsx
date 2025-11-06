@@ -1,8 +1,10 @@
+"use client";
 import PlayerCardContainer from "@/components/feactures/module/players/playerCard/PlayerCardContainer";
 import ClubHomePage from "../(dashboard)/(features)/(club)/club-home/page";
 import ClubAddPage from "../(dashboard)/(features)/(club)/club-add/page";
 import SuscriptionClubCardContainer from "@/components/feactures/module/suscription/suscriptionClubCard/SuscriptionClubCardContainer";
 import { IClubSuscription } from "@/models/modules/ISuscription";
+import ClubSuscriptionPage from "../(dashboard)/(features)/(club)/clubSuscription/page";
 
 const suscription : IClubSuscription = {
     SuscripcionId :1,
@@ -14,7 +16,7 @@ const suscription : IClubSuscription = {
 export default function PublicHomePage() {
     return (
         <div className="w-full">
-            <SuscriptionClubCardContainer clubSuscription={suscription} onChange={(id) => console.log("Suscripción seleccionada:", id)}/>
+            <ClubSuscriptionPage />
         </div>
     );
 }
