@@ -5,21 +5,22 @@ import { useRouter } from "next/navigation";
 import { ILogin } from "@/models/modules/ILogin";
 import { Fetcher } from "@/lib/helpers/fetcher";
 import { FormHelper } from "@/lib/helpers/formhelper";
+import { LoginService } from "./Service/LoginService";
 
 export default function LoginPage() {
+  const service = new LoginService();
   const router = useRouter();
 
   const handleLogin = async (formData: FormData) => {
   const formHelp = new FormHelper()
   let data = formHelp.getValues<ILogin>(formData)
   
-  const api = new Fetcher("https://api.example.com");
-  const res = await api.post("/login", data);
-
-  if (res.ok) {
-    const { token } = await res.json();
+  const res =  await service.Login(data as ILogin)
+  console.log(res)
+  if (res.status == 200) {
+    const { token } = res.data;
     localStorage.setItem("token", token);
-    router.push("/dashboard");
+    router.push("/dashboard-home");
   } else {
     alert("Credenciales incorrectas");
   }
