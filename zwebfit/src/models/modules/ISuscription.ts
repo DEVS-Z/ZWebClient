@@ -1,8 +1,8 @@
 export interface IClubSuscription {
-    SuscripcionId : number;
-    Nombre: string;
-    Precio: number;
-    CantPlayers: number;
+    SuscripcionId? : number;
+    Nombre?: string;
+    Precio?: number;
+    CantPlayers?: number;
 }
 
 export interface IClubSuscriptionProps{

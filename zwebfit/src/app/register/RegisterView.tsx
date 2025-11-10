@@ -29,10 +29,10 @@ export default function RegisterView({ onSubmit }: { onSubmit: (data: any) => vo
                     <label htmlFor="email" className="block text-sm font-medium text-gray-200">Email address</label>
                     <input id="email" type="email" name="email" required className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-500" />
                 </div>
-                <div>
+                {/* <div>
                     <label htmlFor="edad" className="block text-sm font-medium text-gray-200">Edad</label>
                     <input id="edad" type="number" name="edad" required className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-500" />
-                </div>
+                </div> */}
 
                 <div>
                     <label htmlFor="password" className="block text-sm font-medium text-gray-200">

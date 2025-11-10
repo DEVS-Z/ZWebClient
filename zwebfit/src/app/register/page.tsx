@@ -12,9 +12,7 @@ export default function RegisterPage(){
     const handleRegister = async(formData : FormData) => {
         const formHelp = new FormHelper()
         let data = formHelp.getValues<IUser>(formData)
-          
         const res =  await service.Register(data as IUser)
-        console.log(res)
         if (res.status == 200) {
             router.push("/login");
         } else {

@@ -5,6 +5,7 @@ import ClubAddPage from "../(dashboard)/(features)/(club)/club-add/page";
 import SuscriptionClubCardContainer from "@/components/feactures/module/suscription/suscriptionClubCard/SuscriptionClubCardContainer";
 import { IClubSuscription } from "@/models/modules/ISuscription";
 import ClubSuscriptionPage from "../(dashboard)/(features)/(club)/clubSuscription/page";
+import SuscriptionAddPage from "../(dashboard)/(features)/(suscription)/suscription-add/page";
 
 const suscription : IClubSuscription = {
     SuscripcionId :1,
@@ -16,7 +17,7 @@ const suscription : IClubSuscription = {
 export default function PublicHomePage() {
     return (
         <div className="w-full">
-            <ClubSuscriptionPage />
+            <SuscriptionAddPage />
         </div>
     );
 }
