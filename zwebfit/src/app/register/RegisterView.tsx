@@ -22,8 +22,8 @@ export default function RegisterView({ onSubmit }: { onSubmit: (data: any) => vo
                 }}
             >
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-200">Name</label>
-                    <input id="name" type="text" name="name" required className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-500" />
+                    <label htmlFor="nombre" className="block text-sm font-medium text-gray-200">Name</label>
+                    <input id="name" type="text" name="nombre" required className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-500" />
                 </div>
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-200">Email address</label>

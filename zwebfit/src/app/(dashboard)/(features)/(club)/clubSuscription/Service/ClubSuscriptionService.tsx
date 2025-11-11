@@ -8,5 +8,5 @@ export class ClubSuscriptionService{
     constructor(){
         this.fetcher = new Fetcher(enviroment.Production.ApiUrl);
     }
-    GetAll = () =>  this.fetcher.get<IResponse>('/suscripciones')
+    GetAll = () =>  this.fetcher.get<IResponse>('/suscripciones/')
 }

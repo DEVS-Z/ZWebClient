@@ -11,8 +11,9 @@ export default function RegisterPage(){
     const router = useRouter();
     const handleRegister = async(formData : FormData) => {
         const formHelp = new FormHelper()
-        let data = formHelp.getValues<IUser>(formData)
-        const res =  await service.Register(data as IUser)
+        let data = formHelp.getValues(formData)
+        data.password = String(data.password);
+        const res =  await service.Register(data)
         if (res.status == 200) {
             router.push("/login");
         } else {

@@ -9,5 +9,5 @@ export class RegisterService{
     constructor(){
         this.fetcher = new Fetcher(enviroment.Production.ApiUrl);
     }
-    Register = (data : IUser) =>  this.fetcher.post<IResponse>('/auth/sign-up/', data)
+    Register = (data : any) =>  fetch(`${enviroment.Production.ApiUrl}/auth/sign-up`,{ method : 'POST', body: JSON.stringify(data)})
 }
