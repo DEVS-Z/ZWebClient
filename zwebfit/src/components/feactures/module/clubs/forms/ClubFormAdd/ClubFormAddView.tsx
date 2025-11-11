@@ -27,8 +27,8 @@ export default function ClubFormAddView({onSubmit, }: { onSubmit: (event: React.
           </label>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="Nombre"
+            id="Nombre"
             placeholder="Value"
             className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
           />
@@ -38,7 +38,7 @@ export default function ClubFormAddView({onSubmit, }: { onSubmit: (event: React.
           <label className="block font-medium text-gray-800 mb-1">País de origen</label>
           <Select2DynamicContainer 
         select2={{
-          name:"country",
+          name:"Pais",
           value: pais,
           onChange: setPais,
           placeholder: "Selecciona un país",

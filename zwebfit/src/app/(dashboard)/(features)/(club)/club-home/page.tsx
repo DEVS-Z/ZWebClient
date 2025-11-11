@@ -1,40 +1,22 @@
+"use client";
+import { useEffect, useState } from "react";
 import ClubHomeView from "./ClubHomeView";
-
-const clubs = [
-        {
-            id: 1,
-            name: "Chivas",
-            tagName: "Club deportivo de Guadalajara",
-            clubImage: "https://1000marcas.net/wp-content/uploads/2020/03/Chivas-Logo-2017.png",
-            ownerName: "La Pulga",
-            members : 16
-        },
-        {
-            id: 2,
-            name: "Chivas",
-            tagName: "Club deportivo de Guadalajara",
-            clubImage: "https://1000marcas.net/wp-content/uploads/2020/03/Chivas-Logo-2017.png", 
-            ownerName: "La Pulga",
-            members : 16
-        },
-        {
-            id: 3,
-            name: "Chivas",
-            tagName: "Club deportivo de Guadalajara",
-            clubImage: "https://1000marcas.net/wp-content/uploads/2020/03/Chivas-Logo-2017.png", 
-            ownerName: "La Pulga",
-            members : 16
-        },
-        {
-            id: 4,
-            name: "Chivas",
-            tagName: "Club deportivo de Guadalajara",
-            clubImage: "https://1000marcas.net/wp-content/uploads/2020/03/Chivas-Logo-2017.png", 
-            ownerName: "La Pulga",
-            members : 16
-        }
-    ];
+import { IClub } from "@/models/modules/IClub";
+import { ClubService } from "../Services/ClubService";
 
 export default function ClubHomePage(){
-    return <ClubHomeView clubs={clubs}/>
+    const service = new ClubService();
+    const [data, setData] = useState<IClub[]>([]);
+    const [loading, setLoading] = useState(true);
+    
+        useEffect(() => {
+            const fetchData = async () => {
+                const res = await service.GetAll();
+                setData(res.data);
+                setLoading(false);
+            };
+            
+            fetchData(); 
+        }, []);
+    return <ClubHomeView clubs={data}/>
 }
