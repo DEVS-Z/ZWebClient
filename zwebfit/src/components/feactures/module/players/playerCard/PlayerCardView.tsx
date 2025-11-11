@@ -2,7 +2,7 @@ import { IPlayer } from "@/models/modules/IPlayer";
 
 export default function PlayerView({ player }: { player: IPlayer }) {
   return (
-    <div key={player.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div key={player.MiembroId} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative h-64 bg-gradient-to-br from-blue-900 to-red-900">
         <img
           src={player.image}
@@ -46,14 +46,14 @@ export default function PlayerView({ player }: { player: IPlayer }) {
         <div className="border-t border-gray-200 pt-3">
           <p className="text-xs font-semibold text-gray-700 mb-2">Posiciones</p>
           <div className="flex gap-2 flex-wrap">
-            {player.positions.map((position, index) => (
+            {/* {player.positions.map((position, index) => (
               <span
                 key={index}
                 className="text-black px-3 py-1 text-xs border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
               >
                 {position}
               </span>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
