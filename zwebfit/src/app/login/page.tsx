@@ -14,11 +14,10 @@ export default function LoginPage() {
   const handleLogin = async (formData: FormData) => {
   const formHelp = new FormHelper()
   let data = formHelp.getValues<ILogin>(formData)
-  
+  data.password = String(data.password);
   const res =  await service.Login(data as ILogin)
-  console.log(res)
-  if (res.status == 200) {
-    const { token } = res.data;
+  if (res.status === 200 && res.data) {
+    const token = res.data;
     localStorage.setItem("token", token);
     router.push("/dashboard-home");
   } else {

@@ -1,49 +1,22 @@
+"use client";
+import { IPlayer } from "@/models/modules/IPlayer";
+import { PlayerService } from "../Services/PlayerService";
 import PlayerHomeView from "./PlayerHomeView";
-const players = [
-        {
-            id: 1,
-            name: "Chicharito Hernandez",
-            age: "37 Años",
-            image: "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0108%2Fr1274969_1296x729_16%2D9.jpg", // Reemplaza con tu ruta
-            positions: ["Delantero", "Defensa"]
-        },
-        {
-            id: 2,
-            name: "Chicharito Hernandez",
-            age: "37 Años",
-            image: "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0108%2Fr1274969_1296x729_16%2D9.jpg",
-            positions: ["Delantero", "Defensa"]
-        },
-        {
-            id: 3,
-            name: "Chicharito Hernandez",
-            age: "37 Años",
-            image: "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0108%2Fr1274969_1296x729_16%2D9.jpg",
-            positions: ["Delantero", "Defensa"]
-        },
-        {
-            id: 4,
-            name: "Chicharito Hernandez",
-            age: "37 Años",
-            image: "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0108%2Fr1274969_1296x729_16%2D9.jpg",
-            positions: ["Delantero", "Defensa"]
-        },
-        {
-            id: 5,
-            name: "Chicharito Hernandez",
-            age: "37 Años",
-            image: "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0108%2Fr1274969_1296x729_16%2D9.jpg",
-            positions: ["Delantero", "Defensa"]
-        },
-        {
-            id: 6,
-            name: "Chicharito Hernandez",
-            age: "37 Años",
-            image: "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0108%2Fr1274969_1296x729_16%2D9.jpg",
-            positions: ["Delantero", "Defensa"]
-        }
-    ];
+import { useEffect, useState } from "react";
 
 export default function PlayerHomePage(){
-    return <PlayerHomeView players={players} />
+    const service = new PlayerService();
+        const [data, setData] = useState<IPlayer[]>([]);
+        const [loading, setLoading] = useState(true);
+        
+            useEffect(() => {
+                const fetchData = async () => {
+                    const res = await service.GetAll();
+                    setData(res.data);
+                    setLoading(false);
+                };
+                
+                fetchData(); 
+            }, []);
+    return <PlayerHomeView players={data} />
 }
