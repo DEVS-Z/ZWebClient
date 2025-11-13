@@ -10,7 +10,7 @@ export const rutinasApi = {
   },
 
   getById: async (id: number) => {
-    return await fetcher.post<{ status: number; message: string; data: IRutina }>(`/rutinas/${id}`, { RutinaId: id });
+    return await fetcher.get<{ status: number; message: string; data: IRutina }>(`/rutinas/${id}`);
   },
 
   create: async (rutina: IRutina) => {
@@ -22,6 +22,6 @@ export const rutinasApi = {
   },
 
   delete: async (id: number) => {
-    return await fetcher.post<{ status: number; message: string }>(`/rutinas/delete`, { RutinaId: id });
+    return await fetcher.delete<{ status: number; message: string }>(`/rutinas/${id}`);
   },
 };

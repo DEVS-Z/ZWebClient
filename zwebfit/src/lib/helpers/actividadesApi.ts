@@ -10,7 +10,7 @@ export const actividadesApi = {
   },
 
   getById: async (id: number) => {
-    return await fetcher.post<{ status: number; message: string; data: IActividad }>(`/actividades/${id}`, { ActividadId: id });
+    return await fetcher.get<{ status: number; message: string; data: IActividad }>(`/actividades/${id}`);
   },
 
   create: async (actividad: IActividad) => {
@@ -22,6 +22,6 @@ export const actividadesApi = {
   },
 
   delete: async (id: number) => {
-    return await fetcher.post<{ status: number; message: string }>(`/actividades/delete`, { ActividadId: id });
+    return await fetcher.delete<{ status: number; message: string }>(`/actividades/${id}`);
   },
 };

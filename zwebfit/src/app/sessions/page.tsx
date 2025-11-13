@@ -44,22 +44,9 @@ export default function SessionsPage() {
     setIsViewModalOpen(true);
   };
 
-  const handleEditRutina = async (rutina: IRutina) => {
-    if (!rutina.RutinaId) return;
-    
-    try {
-      setLoading(true);
-      const response = await rutinasApi.getById(rutina.RutinaId);
-      if (response.status === 200 && response.data) {
-        setSelectedRutina(response.data);
-        setIsEditModalOpen(true);
-      }
-    } catch (error) {
-      console.error('Error fetching rutina:', error);
-      alert('Error cargando datos de rutina');
-    } finally {
-      setLoading(false);
-    }
+  const handleEditRutina = (rutina: IRutina) => {
+    setSelectedRutina(rutina);
+    setIsEditModalOpen(true);
   };
 
   const handleDeleteRutina = async (rutina: IRutina) => {

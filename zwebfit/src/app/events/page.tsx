@@ -156,22 +156,9 @@ export default function EventsPage() {
     setIsViewModalOpen(true);
   };
 
-  const handleEditActividad = async (actividad: IActividad) => {
-    if (!actividad.ActividadId) return;
-    
-    try {
-      setLoading(true);
-      const response = await actividadesApi.getById(actividad.ActividadId);
-      if (response.status === 200 && response.data) {
-        setSelectedActividad(response.data);
-        setIsEditModalOpen(true);
-      }
-    } catch (error) {
-      console.error('Error fetching actividad:', error);
-      alert('Error cargando datos de actividad');
-    } finally {
-      setLoading(false);
-    }
+  const handleEditActividad = (actividad: IActividad) => {
+    setSelectedActividad(actividad);
+    setIsEditModalOpen(true);
   };
 
   const handleDeleteActividad = async (actividad: IActividad) => {

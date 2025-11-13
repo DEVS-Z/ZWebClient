@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IRutinaFormProps } from '@/models/modules/IRutina';
 import RutinaCrudView from './RutinaCrudView';
 import { useAuth } from '@/app/context/authContext';
@@ -10,13 +10,34 @@ export default function RutinaCrudContainer(props: IRutinaFormProps) {
   const { userId } = useAuth();
 
   const [formData, setFormData] = useState({
-    Nombre: rutinaData?.Nombre || '',
-    Objetivo: rutinaData?.Objetivo || '',
-    Tipo: rutinaData?.Tipo || '',
-    NivelDificultad: rutinaData?.NivelDificultad || '',
+    Nombre: '',
+    Objetivo: '',
+    Tipo: '',
+    NivelDificultad: '',
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  // Update form data when rutinaData changes
+  useEffect(() => {
+    if (rutinaData) {
+      setFormData({
+        Nombre: rutinaData.Nombre || '',
+        Objetivo: rutinaData.Objetivo || '',
+        Tipo: rutinaData.Tipo || '',
+        NivelDificultad: rutinaData.NivelDificultad || '',
+      });
+    } else {
+      // Reset form for create mode
+      setFormData({
+        Nombre: '',
+        Objetivo: '',
+        Tipo: '',
+        NivelDificultad: '',
+      });
+    }
+    setErrors({});
+  }, [rutinaData, isOpen]);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));

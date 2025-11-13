@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IActividadFormProps } from '@/models/modules/IActividad';
 import ActividadCrudView from './ActividadCrudView';
 import { useAuth } from '@/app/context/authContext';
@@ -10,14 +10,37 @@ export default function ActividadCrudContainer(props: IActividadFormProps) {
   const { userId } = useAuth();
 
   const [formData, setFormData] = useState({
-    RutinaId: actividadData?.RutinaId || 0,
-    Tipo: actividadData?.Tipo || '',
-    FechaInicio: actividadData?.FechaInicio || '',
-    FechaFin: actividadData?.FechaFin || '',
-    Descripcion: actividadData?.Descripcion || '',
+    RutinaId: 0,
+    Tipo: '',
+    FechaInicio: '',
+    FechaFin: '',
+    Descripcion: '',
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  // Update form data when actividadData changes
+  useEffect(() => {
+    if (actividadData) {
+      setFormData({
+        RutinaId: actividadData.RutinaId || 0,
+        Tipo: actividadData.Tipo || '',
+        FechaInicio: actividadData.FechaInicio || '',
+        FechaFin: actividadData.FechaFin || '',
+        Descripcion: actividadData.Descripcion || '',
+      });
+    } else {
+      // Reset form for create mode
+      setFormData({
+        RutinaId: 0,
+        Tipo: '',
+        FechaInicio: '',
+        FechaFin: '',
+        Descripcion: '',
+      });
+    }
+    setErrors({});
+  }, [actividadData, isOpen]);
 
   const handleInputChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
