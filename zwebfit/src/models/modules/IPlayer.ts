@@ -6,7 +6,7 @@ export interface IPlayerStats {
 }
 
 export interface IPlayer {
-  MiembroId: number;
+  id: number;
   name: string;
   age: string;
   image: string;

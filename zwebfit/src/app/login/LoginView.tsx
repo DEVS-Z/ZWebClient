@@ -2,23 +2,18 @@
 
 export default function LoginView({ onSubmit }: { onSubmit: (data: any) => void }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen bg-white text-black">
+    <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       {/* Columna izquierda (Formulario) */}
-      <div className="flex flex-col justify-center items-center px-6 py-12">
-        <div className="w-full max-w-md border border-gray-200 rounded-2xl shadow-lg p-10 bg-white">
-          <div className="flex flex-col items-center">
-            {/* Ícono balón blanco/negro */}
-            <img
-  src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg"
-  alt="Balón de fútbol"
-  className="mx-auto h-10 w-10"
-/>
-
-            <h2 className="mt-8 text-2xl font-semibold tracking-tight text-gray-900">
-              Inicia sesión
-            </h2>
-            <p className="text-sm text-gray-500">Accede a tu cuenta de rendimiento</p>
-          </div>
+      <div className="flex flex-col justify-center items-center bg-gray-900 px-8 py-12">
+        <div className="w-full max-w-sm">
+          <img
+            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+            alt="Your Company"
+            className="mx-auto h-10 w-auto"
+          />
+          <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-white">
+            Sign in to your account
+          </h2>
 
           <form
             className="mt-10 space-y-6"
@@ -29,52 +24,46 @@ export default function LoginView({ onSubmit }: { onSubmit: (data: any) => void 
             }}
           >
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-800">
-                Correo electrónico
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                className="mt-2 block w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-base text-gray-800 placeholder-gray-400 focus:border-black focus:ring-black"
-              />
+              <label htmlFor="email" className="block text-sm font-medium text-gray-200">Email address</label>
+              <input id="email" type="email" name="email" required className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-500" />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-800">
-                Contraseña
+              <label htmlFor="password" className="block text-sm font-medium text-gray-200">
+                Password
               </label>
               <input
                 id="password"
                 type="password"
                 name="password"
                 required
-                className="mt-2 block w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-base text-gray-800 placeholder-gray-400 focus:border-black focus:ring-black"
+                className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-500"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-gray-800 transition-colors"
+              className="w-full rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400 focus:outline-indigo-500"
             >
-              Entrar
+              Sign in
             </button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-gray-500">
-            ¿No tienes cuenta?
-            <a href="#" className="font-medium text-black hover:underline"> Regístrate</a>
+          <p className="mt-10 text-center text-sm text-gray-400">
+            Not a member?
+            <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
+              {" "}Register
+            </a>
           </p>
         </div>
       </div>
 
-      {/* Columna derecha (imagen inspirada en medición deportiva) */}
-      <div className="hidden md:flex items-center justify-center bg-white">
+      {/* Columna derecha (imagen o contenido visual) */}
+      <div className="hidden md:flex items-center justify-center bg-indigo-600">
         <img
-          src="https://zone14.ai/wp-content/uploads/2024/11/DALL%C2%B7E-2024-11-06-09.35.08-A-detailed-illustration-showcasing-wearable-technology-for-football-players-on-a-soccer-field.-The-image-includes-multiple-wearables-such-as-a-GPS-tra.webp"
-          alt="Monitoreo de rendimiento de futbolistas"
-          className="w-full h-full object-cover grayscale"
+          src="https://static.dw.com/image/61527609_804.jpg"
+          alt="Background"
+          className="w-full h-full object-cover"
         />
       </div>
     </div>
