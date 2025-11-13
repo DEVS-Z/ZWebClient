@@ -21,19 +21,25 @@ export class Fetcher {
   ): Promise<T> {
     try {
       const token = this.getToken();
-      console.log(token)
+      console.log('[TOKEN]', token ? `${token.substring(0, 20)}...` : 'NO TOKEN');
+      console.log('[REQUEST]', method, this.baseUrl + url);
+      if (data) console.log('[DATA]', data);
+      
       const response = await fetch(this.baseUrl + url, {
         method,
         headers: {
           "Content-Type": "application/json",
           ...customHeaders,
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          // Try both formats if one fails
+          // ...(token ? { Authorization: `Token ${token}` } : {}),
         },
         body: data ? JSON.stringify(data) : undefined,
       });
 
       if (!response.ok) {
         const errorText = await response.text();
+        console.error('[ERROR RESPONSE]', errorText);
         throw new Error(`HTTP ${response.status}: ${errorText}`);
       }
       const result = (await response.json()) as T;
