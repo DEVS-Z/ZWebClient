@@ -1,10 +1,10 @@
 
 export interface IClub {
-  ClubId?: number;      
-  FechaRegistro? : string;
-  Nombre: string;
-  OwnerId?: number;
-  Pais? : string;
+  id?: number;      
+  dateCreate? : Date;
+  name: string;
+  ownerId?: number;
+  country? : string;
   tagName : string;
   clubImage : string;
   ownerName : string;

@@ -1,15 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
 import PublicNavbarView from "./PublicNavbarView";
 import AppNavbarView from "./AppNavbarView";
 
-export default function NavbarContainer() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
-
+//CAMBIAR TRUE O FALSE PARA PROBAR NAVBAR PUBLICA O DE APP
+export default function NavbarContainer({ isLoggedIn = false }:
+    
+    
+    { isLoggedIn?: boolean }) {
   return isLoggedIn ? <AppNavbarView /> : <PublicNavbarView />;
 }

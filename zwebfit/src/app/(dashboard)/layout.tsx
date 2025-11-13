@@ -2,6 +2,7 @@
 import { useAuth } from "@/app/context/authContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import SidebarContainer from "@/components/layout/sidebar/SidebarContainer";
 import NavbarContainer from "@/components/layout/navbar/NavbarContainer";
 import FooterContainer from "@/components/layout/footer/FooterContainer";
 
