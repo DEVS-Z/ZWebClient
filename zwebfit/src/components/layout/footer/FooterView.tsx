@@ -9,7 +9,7 @@ export default function FooterView() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-3">ZFut ®</h3>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Tecnología inteligente para la gestión de equipos y sesiones.
+              Aplicacion web para facilitar el manejo de sesiones de tu equipo de futbol soccer de forma facil, eficiente y inteligente
             </p>
           </div>
 

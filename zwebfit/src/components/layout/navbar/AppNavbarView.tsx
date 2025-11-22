@@ -24,10 +24,7 @@ export default function AppNavbarView({ playerName = "__________________" }: App
         {/* DERECHA: Bienvenida + Acciones */}
         <div className="flex items-center gap-8 justify-end">
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/club-home" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Club</Link>
-            <Link href="/player-home" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Jugadores</Link>
             <Link href="/pricing" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Planes</Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-900 text-sm hover:underline underline-offset-4">Contacto</Link>
           </nav>
           <p className="hidden sm:block text-sm text-gray-800">
             <span className="font-medium">Bienvenido,</span> {playerName}

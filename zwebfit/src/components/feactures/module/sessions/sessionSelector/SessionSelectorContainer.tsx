@@ -15,7 +15,7 @@ export default function SessionSelectorContainer() {
   };
 
   const [activeTab, setActiveTab] = useState(getActiveTab());
-  const tabs = ['Roaster', 'Sessions', 'Events'];
+  const tabs = ['Events', 'Sessions', 'Roaster'];
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
