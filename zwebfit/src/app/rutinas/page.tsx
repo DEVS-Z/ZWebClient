@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import SessionSelectorContainer from "@/components/feactures/module/sessions/sessionSelector/SessionSelectorContainer";
-import RutinaCard from "@/components/feactures/module/routines/rutinaCard/RutinaCard";
-import RutinaCrudContainer from "@/components/feactures/module/routines/routineCrud/RutinaCrudContainer";
-import RutinaDetailsRead from "@/components/feactures/module/routines/rutinaDetailsRead/RutinaDetailsRead";
+import ModuleSelectorContainer from "@/components/feactures/module/common/moduleSelector/ModuleSelectorContainer";
+import RutinaCard from "@/components/feactures/module/rutinas/rutinaCard/RutinaCard";
+import RutinaCrudContainer from "@/components/feactures/module/rutinas/rutinaCrud/RutinaCrudContainer";
+import RutinaDetailsRead from "@/components/feactures/module/rutinas/rutinaDetailsRead/RutinaDetailsRead";
 import { IRutina } from "@/models/modules/IRutina";
 import { rutinasApi } from "@/lib/helpers/rutinasApi";
 
-export default function SessionsPage() {
+export default function RutinasPage() {
   const [rutinas, setRutinas] = useState<IRutina[]>([]);
   const [loading, setLoading] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -121,7 +121,7 @@ export default function SessionsPage() {
   return ( 
     <main className="p-6 flex flex-col gap-6">
       {/* 3-button navigation */}
-      <SessionSelectorContainer />
+      <ModuleSelectorContainer />
       
       {/* Rutinas header with Create button */}
       <div className="flex items-center justify-between">

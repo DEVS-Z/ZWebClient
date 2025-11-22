@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IRutinaFormProps } from '@/models/modules/IRutina';
 import RutinaCrudView from './RutinaCrudView';
 import { useAuth } from '@/app/context/authContext';
@@ -15,6 +15,17 @@ export default function RutinaCrudContainer(props: IRutinaFormProps) {
     Tipo: rutinaData?.Tipo || '',
     NivelDificultad: rutinaData?.NivelDificultad || '',
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({
+        Nombre: rutinaData?.Nombre || '',
+        Objetivo: rutinaData?.Objetivo || '',
+        Tipo: rutinaData?.Tipo || '',
+        NivelDificultad: rutinaData?.NivelDificultad || '',
+      });
+    }
+  }, [isOpen, rutinaData]);
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 

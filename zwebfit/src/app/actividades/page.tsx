@@ -1,122 +1,23 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import SessionSelectorContainer from "@/components/feactures/module/sessions/sessionSelector/SessionSelectorContainer";
-import ActividadCard from "@/components/feactures/module/activities/actividadCard/ActividadCard";
-import ActividadCrudContainer from "@/components/feactures/module/activities/actividadCrud/ActividadCrudContainer";
-import ActividadDetailsRead from "@/components/feactures/module/activities/actividadDetailsRead/ActividadDetailsRead";
-import NotificationPanelContainer from "@/components/feactures/module/notifications/notificationPanel/NotificationPanelContainer";
+import ModuleSelectorContainer from "@/components/feactures/module/common/moduleSelector/ModuleSelectorContainer";
+import ActividadCard from "@/components/feactures/module/actividades/actividadCard/ActividadCard";
+import ActividadCrudContainer from "@/components/feactures/module/actividades/actividadCrud/ActividadCrudContainer";
+import ActividadDetailsRead from "@/components/feactures/module/actividades/actividadDetailsRead/ActividadDetailsRead";
 import { IRutina } from "@/models/modules/IRutina";
 import { IActividad } from "@/models/modules/IActividad";
 import { rutinasApi } from "@/lib/helpers/rutinasApi";
 import { actividadesApi } from "@/lib/helpers/actividadesApi";
 
-// Mock players data
-const mockPlayers: ISessionPlayer[] = [
-  {
-    id: '1',
-    name: 'Chicharito Hernandez',
-    age: 37,
-    position: 'Delantero',
-    availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-  },
-  {
-    id: '2',
-    name: 'Memo Ochoa',
-    age: 39,
-    position: 'Portero',
-    availablePositions: ['Portero', 'Defensa'],
-  },
-  {
-    id: '3',
-    name: 'Raúl Jiménez',
-    age: 33,
-    position: 'Delantero',
-    availablePositions: ['Delantero', 'Mediocampista'],
-  },
-  {
-    id: '4',
-    name: 'Héctor Moreno',
-    age: 36,
-    position: 'Defensa',
-    availablePositions: ['Defensa', 'Mediocampista'],
-  },
-  {
-    id: '5',
-    name: 'Hirving Lozano',
-    age: 29,
-    position: 'Delantero',
-    availablePositions: ['Delantero', 'Mediocampista', 'Defensa'],
-  },
-];
-
-// Mock session data for testing read-only view
-const mockSessionData: ISessionDetails = {
-  id: '1',
-  eventType: 'Training Session',
-  location: 'Los Xolos Stadium',
-  date: '2025-04-01',
-  startingTime: '12:00',
-  finishingTime: '14:00',
-  note: 'Bring your equipment to do hard training',
-  players: [
-    {
-      id: '1',
-      name: 'Chicharito Hernandez',
-      age: 37,
-      position: 'Delantero',
-      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-    },
-    {
-      id: '2',
-      name: 'Chicharito Hernandez',
-      age: 37,
-      position: 'Delantero',
-      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-    },
-    {
-      id: '3',
-      name: 'Chicharito Hernandez',
-      age: 37,
-      position: 'Delantero',
-      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-    },
-    {
-      id: '4',
-      name: 'Chicharito Hernandez',
-      age: 37,
-      position: 'Delantero',
-      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-    },
-    {
-      id: '5',
-      name: 'Chicharito Hernandez',
-      age: 37,
-      position: 'Delantero',
-      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-    },
-    {
-      id: '6',
-      name: 'Chicharito Hernandez',
-      age: 37,
-      position: 'Delantero',
-      availablePositions: ['Delantero', 'Mediocampista', 'Defensa', 'Portero'],
-    },
-  ],
-};
-
-export default function EventsPage() {
+export default function ActividadesPage() {
   const [actividades, setActividades] = useState<IActividad[]>([]);
   const [rutinas, setRutinas] = useState<IRutina[]>([]);
   const [loading, setLoading] = useState(false);
-  const [isNotificationPanelOpen, setIsNotificationPanelOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [selectedActividad, setSelectedActividad] = useState<IActividad | undefined>(undefined);
-
-  // Mock unread notifications count
-  const unreadCount = 2;
 
   // Fetch actividades and rutinas
   useEffect(() => {
@@ -141,10 +42,6 @@ export default function EventsPage() {
     };
     fetchData();
   }, []);
-
-  const toggleNotificationPanel = () => {
-    setIsNotificationPanelOpen(!isNotificationPanelOpen);
-  };
 
   const handleCreateActividad = () => {
     setSelectedActividad(undefined);
@@ -239,7 +136,7 @@ export default function EventsPage() {
 
   return (
     <main className="p-6 flex flex-col gap-6">
-      <SessionSelectorContainer />
+      <ModuleSelectorContainer />
       
       {/* Actividades header with Create button and Notification */}
       <div className="flex items-center justify-between">
@@ -248,28 +145,6 @@ export default function EventsPage() {
           <p className="text-gray-600">{actividades.length} actividades disponibles</p>
         </div>
         <div className="flex gap-3 items-center relative">
-          {/* Notification Bell Button */}
-          <button
-            onClick={toggleNotificationPanel}
-            className="relative p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Notifications"
-          >
-            <span className="material-symbols-outlined text-3xl">
-              {unreadCount > 0 ? 'notifications_unread' : 'notifications'}
-            </span>
-            {unreadCount > 0 && (
-              <span className="absolute top-1 right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                {unreadCount}
-              </span>
-            )}
-          </button>
-
-          {/* Notification Panel */}
-          <NotificationPanelContainer
-            isOpen={isNotificationPanelOpen}
-            onClose={() => setIsNotificationPanelOpen(false)}
-          />
-
           {/* Create Actividad Button */}
           <button
             onClick={handleCreateActividad}

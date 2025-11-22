@@ -127,18 +127,7 @@ export default function RutinaCrudView(props: RutinaCrudViewProps) {
           </div>
         </div>
 
-        <div className="sticky bottom-0 bg-white border-t border-gray-200 px-6 py-4 rounded-b-2xl flex items-center justify-between z-10">
-          {isEditMode ? (
-            <button
-              onClick={onDelete}
-              className="px-6 py-2.5 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors shadow-sm"
-            >
-              Delete
-            </button>
-          ) : (
-            <div></div>
-          )}
-
+        <div className="sticky bottom-0 bg-white border-t border-gray-200 px-6 py-4 rounded-b-2xl flex items-center justify-end z-10">
           <button
             onClick={onSave}
             className="px-8 py-2.5 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors shadow-sm"

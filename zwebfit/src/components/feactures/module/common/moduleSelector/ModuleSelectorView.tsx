@@ -7,7 +7,7 @@ type Props = {
   onTabChange: (tab: string) => void;
 };
 
-export default function SessionSelectorView({
+export default function ModuleSelectorView({
   tabs,
   activeTab,
   onTabChange,

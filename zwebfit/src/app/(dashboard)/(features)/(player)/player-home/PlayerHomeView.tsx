@@ -8,8 +8,8 @@ export default function PlayerHomeView({players} : {players : IPlayer[]}){
         <div className="w-full">
             <div className="mb-8 flex items-center justify-between">
                 <div>
-                    <h5 className="text-xl text-black font-bold mb-2">Player Roaster</h5>
-                    <p className="text-gray-600">All</p>
+                    <h5 className="text-xl text-black font-bold mb-2">Jugadores</h5>
+                    <p className="text-gray-600">Todos</p>
                 </div>
 
                 <Link href="/player-add">

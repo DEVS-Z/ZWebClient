@@ -9,9 +9,9 @@ export default function RootPage() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push("/events");
+      router.push("/actividades");
     } else {
-      router.push("/events");
+      router.push("/actividades");
     }
   }, [isLoggedIn, router]);
 

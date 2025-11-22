@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IActividadFormProps } from '@/models/modules/IActividad';
 import ActividadCrudView from './ActividadCrudView';
 import { useAuth } from '@/app/context/authContext';
@@ -16,6 +16,18 @@ export default function ActividadCrudContainer(props: IActividadFormProps) {
     FechaFin: actividadData?.FechaFin || '',
     Descripcion: actividadData?.Descripcion || '',
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({
+        RutinaId: actividadData?.RutinaId || 0,
+        Tipo: actividadData?.Tipo || '',
+        FechaInicio: actividadData?.FechaInicio || '',
+        FechaFin: actividadData?.FechaFin || '',
+        Descripcion: actividadData?.Descripcion || '',
+      });
+    }
+  }, [isOpen, actividadData]);
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 

@@ -123,7 +123,7 @@ const mockPlayers: IPlayer[] = [
   },
 ];
 
-export default function RoasterPage() {
+export default function JugadoresPage() {
   return (
     <main className="p-6 flex flex-col gap-6">
       
@@ -131,8 +131,8 @@ export default function RoasterPage() {
       
       {/* Header */}
       <div>
-        <h2 className="text-xl font-bold text-black mb-2">Player Roaster</h2>
-        <p className="text-gray-600">All</p>
+        <h2 className="text-xl font-bold text-black mb-2">Jugadores</h2>
+        <p className="text-gray-600">Todos</p>
       </div>
 
       {/* Players grid */}
