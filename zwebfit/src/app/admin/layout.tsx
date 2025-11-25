@@ -18,10 +18,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <img
         src="/admin.png"
         alt="Logo ZFut"
-        className="w-8 h-8 object-contain ml-2"
+        className="w-8.5 h-7.5 object-contain ml-2"
       />
       <div className="flex flex-col justify-center ml-2">
-        <h1 className="text-2xl font-bold tracking-wide">ZFut</h1>
+        <h1 className="text-2xl font-bold Trebuchet MS">ZFut</h1>
+   
+
       </div>
     </div>
   </Link>
@@ -32,7 +34,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         <nav className="flex-1 px-3 py-4 space-y-2 text-[15px] font-medium">
           <AdminNavLink href="/admin">
-            <i className="bi bi-speedometer2" /> Dashboard
+         <i className="bi bi-bar-chart-line" /> Dashboard
+
+
           </AdminNavLink>
           <AdminNavLink href="/admin/jugadores">
             <i className="bi bi-person-fill" /> Usuarios
@@ -45,7 +49,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </AdminNavLink>
       
           <AdminNavLink href="/admin/reportes">
-            <i className="bi bi-file-earmark-text" /> Reportes
+          <i className="bi bi-graph-up" />  Reportes
           </AdminNavLink>
 
 
