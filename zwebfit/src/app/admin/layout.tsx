@@ -66,7 +66,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="flex-1 flex flex-col bg-gray-50">
   <header className="h-14 bg-[#364153] text-white flex items-center justify-between px-6 shadow">
     <div className="font-semibold text-white text-[15px] tracking-wide">
-      Panel de administración
+      
     </div>
 
     <div className="flex items-center gap-4">
@@ -76,6 +76,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </button>
     </div>
   </header>
+
+
+
+
+
 
 
 

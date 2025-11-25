@@ -25,7 +25,15 @@ const mockActividades = [
 
 export default function AdminActividadesPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 relative">
+      {/* Imagen de fondo decorativa */}
+   <img
+        src="/admin.png"
+        alt="Decoración"
+        className="absolute right-1 top-7 w-[500px] opacity-30 pointer-events-none select-none z-0"
+      />
+
+
       <div>
         <h2 className="text-2xl font-semibold text-slate-800">Gestión de actividades</h2>
         <p className="text-sm text-slate-500 mt-1">
@@ -33,7 +41,7 @@ export default function AdminActividadesPage() {
         </p>
       </div>
 
-      <section className="bg-white rounded-xl shadow-sm border border-slate-200">
+      <section className="bg-white rounded-xl shadow-sm border border-slate-200 relative z-10">
         <header className="h-14 bg-[#1c1c1c] text-white flex items-center justify-between px-6 shadow">
           <div className="font-semibold text-white text-[15px] tracking-wide">
             Historial de actividades

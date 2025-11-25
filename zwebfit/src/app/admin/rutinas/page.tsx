@@ -22,15 +22,22 @@ const mockRutinas = [
 
 export default function AdminRutinasPage() {
   return (
-    <div className="space-y-8">
-      <div>
+    <div className="relative space-y-8">
+      {/* Imagen decorativa al fondo */}
+      <img
+        src="/admin.png"
+        alt="Decoración"
+        className="absolute right-1 top-7 w-[500px] opacity-30 pointer-events-none select-none z-0"
+      />
+
+      <div className="relative z-10">
         <h2 className="text-2xl font-semibold text-slate-800">Gestión de rutinas</h2>
         <p className="text-sm text-slate-500 mt-1">
           Rutinas disponibles dentro del sistema.
         </p>
       </div>
 
-      <section className="bg-white rounded-xl shadow-sm border border-slate-200">
+      <section className="relative z-10 bg-white rounded-xl shadow-sm border border-slate-200">
         <header className="h-14 bg-[#1c1c1c] text-white flex items-center justify-between px-6 shadow">
           <div className="font-semibold text-white text-[15px] tracking-wide">
             Lista de rutinas

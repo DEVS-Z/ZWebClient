@@ -22,7 +22,14 @@ const dataPorJugador = [
 
 export default function ReporteGraficoJugador() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 relative">
+      {/* Imagen decorativa de fondo */}
+      <img
+        src="/admin.png"
+        alt="Decoración"
+        className="absolute right-1 top-7 w-[500px] opacity-30 pointer-events-none select-none z-0"
+      />
+
       <div>
         <h2 className="text-2xl font-semibold text-slate-800">Estadísticas por jugador</h2>
         <p className="text-sm text-slate-500 mt-1">
@@ -31,7 +38,7 @@ export default function ReporteGraficoJugador() {
       </div>
 
       {/* Gráfica 1: Ritmo cardiaco */}
-      <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative z-10">
         <h3 className="text-lg font-medium text-slate-700 mb-4">Ritmo cardiaco (BPM)</h3>
 
         <ResponsiveContainer width="100%" height={300}>
@@ -47,7 +54,7 @@ export default function ReporteGraficoJugador() {
       </section>
 
       {/* Gráfica 2: Oxigenación */}
-      <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative z-10">
         <h3 className="text-lg font-medium text-slate-700 mb-4">Oxigenación (SpO₂)</h3>
 
         <ResponsiveContainer width="100%" height={300}>

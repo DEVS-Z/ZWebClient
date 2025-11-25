@@ -1,5 +1,3 @@
-// src/app/admin/jugadores/page.tsx
-
 "use client";
 
 import React from "react";
@@ -30,7 +28,15 @@ const mockPlayers = [
 
 export default function AdminJugadoresPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 relative">
+      {/* Imagen decorativa de fondo */}
+       <img
+        src="/admin.png"
+        alt="Decoración"
+        className="absolute right-1 top-7 w-[500px] opacity-30 pointer-events-none select-none z-0"
+      />
+
+
       <div>
         <h2 className="text-2xl font-semibold text-slate-800">
           Gestión de jugadores
@@ -40,7 +46,7 @@ export default function AdminJugadoresPage() {
         </p>
       </div>
 
-      <section className="bg-white rounded-xl shadow-sm border border-slate-200">
+      <section className="bg-white rounded-xl shadow-sm border border-slate-200 relative z-10">
         <header className="h-14 bg-[#1c1c1c] text-white flex items-center justify-between px-6 shadow">
           <div className="font-semibold text-white text-[15px] tracking-wide">
             Lista de jugadores
@@ -52,11 +58,21 @@ export default function AdminJugadoresPage() {
           <table className="min-w-full text-sm">
             <thead className="bg-slate-50">
               <tr>
-                <th className="px-4 py-2 text-left font-medium text-slate-500">Nombre</th>
-                <th className="px-4 py-2 text-left font-medium text-slate-500">Club</th>
-                <th className="px-4 py-2 text-left font-medium text-slate-500">Edad</th>
-                <th className="px-4 py-2 text-left font-medium text-slate-500">BPM</th>
-                <th className="px-4 py-2 text-left font-medium text-slate-500">SpO₂ (%)</th>
+                <th className="px-4 py-2 text-left font-medium text-slate-500">
+                  Nombre
+                </th>
+                <th className="px-4 py-2 text-left font-medium text-slate-500">
+                  Club
+                </th>
+                <th className="px-4 py-2 text-left font-medium text-slate-500">
+                  Edad
+                </th>
+                <th className="px-4 py-2 text-left font-medium text-slate-500">
+                  BPM
+                </th>
+                <th className="px-4 py-2 text-left font-medium text-slate-500">
+                  SpO₂ (%)
+                </th>
               </tr>
             </thead>
             <tbody>
