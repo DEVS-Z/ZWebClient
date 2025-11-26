@@ -1,12 +1,43 @@
 'use client';
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AdminNavLink } from "./AdminNavLink";
 import Link from "next/link";
 
+function decodeJWT(token: string): any {
+  try {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  } catch (error) {
+    console.error("Error decoding JWT:", error);
+    return null;
+  }
+}
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const [username, setUsername] = useState<string | null>(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("admin_token");
+    if (!token) {
+      router.push("/admin-login");
+    } else {
+      const decoded = decodeJWT(token);
+      if (decoded?.username) {
+        setUsername(decoded.username);
+        console.log("👤 Usuario logueado:", decoded.username);
+      }
+    }
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("admin_token");
@@ -67,7 +98,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-300">
-              Bienvenido: <strong>Administrador</strong>
+              Bienvenido: <strong>{username || "----------------"}</strong>
             </span>
             <button
               onClick={handleLogout}
