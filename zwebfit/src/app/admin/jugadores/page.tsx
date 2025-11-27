@@ -1,57 +1,53 @@
 "use client";
 
-import React from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { JugadoresService } from "./Service/JugadoresService";
 
-const mockPlayers = [
-  {
-    nombre: "Juan Pérez",
-    club: "Club Tijuana",
-    edad: 25,
-    bpm: 78,
-    spo2: 97,
-  },
-  {
-    nombre: "Carlos López",
-    club: "Atlas Tijuana",
-    edad: 27,
-    bpm: 92,
-    spo2: 95,
-  },
-  {
-    nombre: "Luis García",
-    club: "Independiente",
-    edad: 24,
-    bpm: 101,
-    spo2: 93,
-  },
-];
+export default function JugadoresPage() {
+  const router = useRouter();
+  const service = new JugadoresService();
 
-export default function AdminJugadoresPage() {
+  const [users, setUsers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const data = await service.getAll();
+
+        // 🔥 Solo usuarios con rolId = 5
+        const filtered = data.filter((u: any) => u.rolId === 5);
+
+        setUsers(filtered);
+      } catch (err) {
+        console.error("Error al cargar usuarios:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
   return (
-    <div className="space-y-8 relative">
-      {/* Imagen decorativa de fondo */}
-       <img
-        src="/admin.png"
-        alt="Decoración"
-        className="absolute right-1 top-7 w-[500px] opacity-30 pointer-events-none select-none z-0"
-      />
-
-
+    <div className="space-y-8 p-6">
+      {/* TITULO */}
       <div>
         <h2 className="text-2xl font-semibold text-slate-800">
-          Gestión de jugadores
+          Gestión de usuarios
         </h2>
         <p className="text-sm text-slate-500 mt-1">
-          Aquí puedes ver todos los jugadores registrados en el sistema.
+          Administración general de los jugadores registrados.
         </p>
       </div>
 
-      <section className="bg-white rounded-xl shadow-sm border border-slate-200 relative z-10">
+      {/* TABLA */}
+      <section className="bg-white rounded-xl shadow-sm border border-slate-200">
         <header className="h-14 bg-[#1c1c1c] text-white flex items-center justify-between px-6 shadow">
-          <div className="font-semibold text-white text-[15px] tracking-wide">
-            Lista de jugadores
+          <div className="font-semibold tracking-wide">
+            Jugadores registrados en plataforma
           </div>
-          <div className="text-sm text-gray-300">Admin (mock)</div>
         </header>
 
         <div className="overflow-x-auto">
@@ -62,32 +58,69 @@ export default function AdminJugadoresPage() {
                   Nombre
                 </th>
                 <th className="px-4 py-2 text-left font-medium text-slate-500">
-                  Club
+                  Correo
                 </th>
                 <th className="px-4 py-2 text-left font-medium text-slate-500">
-                  Edad
+                  Estado
                 </th>
                 <th className="px-4 py-2 text-left font-medium text-slate-500">
-                  BPM
-                </th>
-                <th className="px-4 py-2 text-left font-medium text-slate-500">
-                  SpO₂ (%)
+                  Acciones
                 </th>
               </tr>
             </thead>
+
             <tbody>
-              {mockPlayers.map((player, index) => (
+              {users.map((u, idx) => (
                 <tr
-                  key={player.nombre}
-                  className={index % 2 === 0 ? "bg-white" : "bg-slate-50/50"}
+                  key={u.id}
+                  className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}
                 >
-                  <td className="px-4 py-2 text-slate-800">{player.nombre}</td>
-                  <td className="px-4 py-2 text-slate-600">{player.club}</td>
-                  <td className="px-4 py-2 text-slate-700">{player.edad}</td>
-                  <td className="px-4 py-2 text-slate-700">{player.bpm}</td>
-                  <td className="px-4 py-2 text-slate-700">{player.spo2}</td>
+                  <td className="px-4 py-2 text-slate-800">{u.name}</td>
+                  <td className="px-4 py-2 text-slate-600">{u.email}</td>
+
+                  {/* ETIQUETA ESTADO */}
+                  <td className="px-4 py-2">
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                        u.estado === "activo"
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-red-100 text-red-700"
+                      }`}
+                    >
+                      {u.estado}
+                    </span>
+                  </td>
+
+                  {/* ACCIONES */}
+                  <td className="px-4 py-2 text-slate-700 flex gap-3">
+                    <button
+                      onClick={() => router.push(`/admin/jugadores/${u.id}`)}
+                      className="bg-slate-800 hover:bg-[#1c1c1c] text-white text-xs px-3 py-2 rounded-md"
+                    >
+                      Editar
+                    </button>
+
+                    <button
+                      onClick={() => alert(`Eliminar jugador ${u.name}`)}
+                      className="bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-2 rounded-md"
+                    >
+                      Eliminar
+                    </button>
+                  </td>
                 </tr>
               ))}
+
+              {/* Si NO hay usuarios */}
+              {users.length === 0 && !loading && (
+                <tr>
+                  <td
+                    colSpan={4}
+                    className="text-center py-4 text-slate-500 italic"
+                  >
+                    No hay jugadores registrados.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
