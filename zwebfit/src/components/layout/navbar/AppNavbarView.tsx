@@ -9,6 +9,7 @@ type AppNavbarViewProps = {
   toggleNotificationPanel: () => void;
   onCloseNotificationPanel: () => void;
   unreadCount: number;
+  onLogout: () => void;
 };
 
 export default function AppNavbarView({ 
@@ -16,7 +17,8 @@ export default function AppNavbarView({
   isNotificationPanelOpen,
   toggleNotificationPanel,
   onCloseNotificationPanel,
-  unreadCount
+  unreadCount,
+  onLogout
 }: AppNavbarViewProps) {
   return (
     <header className="bg-white border-b border-gray-200 relative z-50">
@@ -69,12 +71,12 @@ export default function AppNavbarView({
             <User className="w-4 h-4" />
           </Link>
 
-          <Link
-            href="/logout"
+          <button
+            onClick={onLogout}
             className="px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors"
           >
             Cerrar sesión
-          </Link>
+          </button>
         </div>
       </div>
     </header>

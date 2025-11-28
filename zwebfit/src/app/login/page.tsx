@@ -58,7 +58,7 @@ export default function LoginPage() {
         console.warn('No userId found in JWT. Available fields:', Object.keys(decodedToken || {}));
       }
       
-      router.push("/dashboard-home");
+      router.push("/actividades");
     } else {
       alert("Credenciales incorrectas");
     }

@@ -1,4 +1,4 @@
-"use client";
+import Link from "next/link";
 
 export default function LoginView({ onSubmit }: { onSubmit: (data: any) => void }) {
   return (
@@ -52,6 +52,11 @@ export default function LoginView({ onSubmit }: { onSubmit: (data: any) => void 
                 required
                 className="mt-2 block w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-base text-gray-800 placeholder-gray-400 focus:border-black focus:ring-black"
               />
+              <div className="flex justify-end mt-1">
+                <Link href="/forgot-password" className="text-sm text-gray-600 hover:text-black hover:underline">
+                  ¿Olvidaste tu contraseña?
+                </Link>
+              </div>
             </div>
 
             <button
@@ -64,7 +69,7 @@ export default function LoginView({ onSubmit }: { onSubmit: (data: any) => void 
 
           <p className="mt-8 text-center text-sm text-gray-500">
             ¿No tienes cuenta?
-            <a href="#" className="font-medium text-black hover:underline"> Regístrate</a>
+            <Link href="/registrar" className="font-medium text-black hover:underline"> Regístrate</Link>
           </p>
         </div>
       </div>

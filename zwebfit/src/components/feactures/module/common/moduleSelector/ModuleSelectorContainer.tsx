@@ -10,12 +10,11 @@ export default function ModuleSelectorContainer() {
   const getActiveTab = () => {
     if (pathname?.includes('/rutinas')) return 'Rutinas';
     if (pathname?.includes('/actividades')) return 'Actividades';
-    if (pathname?.includes('/jugadores')) return 'Jugadores';
     return 'Actividades';
   };
 
   const [activeTab, setActiveTab] = useState(getActiveTab());
-  const tabs = ['Actividades', 'Rutinas', 'Jugadores'];
+  const tabs = ['Actividades', 'Rutinas'];
 
   useEffect(() => {
     setActiveTab(getActiveTab());
@@ -29,8 +28,6 @@ export default function ModuleSelectorContainer() {
       router.push('/rutinas');
     } else if (tab === 'Actividades') {
       router.push('/actividades');
-    } else if (tab === 'Jugadores') {
-      router.push('/jugadores');
     }
   };
 

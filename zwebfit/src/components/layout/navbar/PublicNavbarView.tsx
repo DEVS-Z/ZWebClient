@@ -37,7 +37,7 @@ export default function PublicNavbarView() {
               Iniciar sesión
             </Link>
             <Link
-              href="/register"
+              href="/registrar"
               className="px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors"
             >
               Registrarse

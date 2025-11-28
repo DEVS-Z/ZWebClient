@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function RegisterView({ onSubmit }: { onSubmit: (data: any) => void }) {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-white text-black px-6 py-12">
@@ -74,9 +76,9 @@ export default function RegisterView({ onSubmit }: { onSubmit: (data: any) => vo
 
         <p className="mt-8 text-center text-sm text-gray-500">
           ¿Ya tienes una cuenta?{" "}
-          <a href="#" className="font-medium text-black hover:underline">
+          <Link href="/login" className="font-medium text-black hover:underline">
             Inicia sesión
-          </a>
+          </Link>
         </p>
       </div>
     </div>
