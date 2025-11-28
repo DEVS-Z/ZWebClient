@@ -96,18 +96,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <span className="text-sm text-gray-300">
                   Bienvenido: <strong>{username}</strong>
                 </span>
-                <button
-                  onClick={() => {
-                    localStorage.removeItem("admin_token");
-                    localStorage.removeItem("token");
-                    localStorage.removeItem("userid");
-                    localStorage.removeItem("role");
-                    router.replace("/admin-login");
-                  }}
-                  className="bg-slate-800 hover:bg-slate-700 text-white text-sm px-4 py-2 rounded-md"
-                >
-                  Cerrar sesión
-                </button>
+               
+               
+               
+            <button
+  onClick={() => {
+    localStorage.removeItem("admin_token");
+    localStorage.removeItem("token");
+    localStorage.removeItem("userid");
+    localStorage.removeItem("role");
+    router.replace("/admin-login");
+  }}
+  className="bg-slate-800 hover:bg-[#1c1c1c] text-white font-bold text-xs px-4 py-2 rounded-md flex items-center gap-2"
+>
+  {/* ICONO de logout (puedes cambiarlo si quieres) */}
+  
+  Cerrar sesión
+</button>
+
+              
+              
+              
               </div>
             </header>
 

@@ -1,3 +1,6 @@
+// #Page client bueno
+
+
 "use client";
 
 import AdminLoginView from "./AdminLoginView";
@@ -28,9 +31,11 @@ export default function AdminLoginPage() {
   const service = new LoginService();
 
   const handleLogin = async (formData: FormData) => {
-    const formHelp = new FormHelper();
-    let data = formHelp.getValues<ILogin>(formData);
-    data.password = String(data.password);
+  const formHelp = new FormHelper();
+  let data = formHelp.getValues<ILogin>(formData);
+  data.password = String(data.password);
+
+  try {
     const res = await service.Login(data as ILogin);
 
     if (res.status === 200 && res.data) {
@@ -40,16 +45,19 @@ export default function AdminLoginPage() {
       const decoded = decodeJWT(token);
       console.log("Token decodificado:", decoded);
 
-      // 🔒 Asegúrate de que estás evaluando correctamente el rol
       if (decoded?.RolId === 1 || decoded?.role === 1 || decoded?.rolId === 1) {
         router.push("/admin");
       } else {
         alert("No tienes permisos de administrador.");
       }
     } else {
-      alert("Credenciales incorrectas");
+      alert("Credenciales incorrectas, contactar al administrador");
     }
-  };
+  } catch (error) {
+    alert("Credenciales incorrectas, contactar al administrador");
+  }
+};
+
 
   return <AdminLoginView onSubmit={handleLogin} />;
 }
