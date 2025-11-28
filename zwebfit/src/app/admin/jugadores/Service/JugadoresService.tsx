@@ -15,6 +15,29 @@ update(id: any, data: any) {
 }
 
 
+
+
+//-------------------------------------------------
+// CRUD - CREATE
+async create(data: any) {
+  const res = await fetch(`${enviroment.Production.ApiUrl}/auth/sign-up`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error("Error al crear jugador");
+
+  return await res.json();
+}
+
+
+
+
+
+
 async getAll() {
   const token = localStorage.getItem("admin_token");
 

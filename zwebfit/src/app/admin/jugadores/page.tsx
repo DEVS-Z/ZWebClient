@@ -43,6 +43,21 @@ export default function JugadoresPage() {
       </div>
 
       {/* TABLA */}
+      {/* BOTÓN CREAR USUARIO */}
+<div className="flex justify-end mb-4">
+  <button
+    onClick={() => router.push("/admin/jugadores/create")}
+    className="bg-slate-800 hover:bg-[#1c1c1c] text-white font-bold text-xs px-4 py-2 rounded-md flex items-center gap-2"
+  >
+    {/* ICONO "+" */}
+    <span className="text-lg">+</span>
+    Crear usuario
+  </button>
+</div>
+
+
+
+
       <section className="bg-white rounded-xl shadow-sm border border-slate-200">
         <header className="h-14 bg-[#1c1c1c] text-white flex items-center justify-between px-6 shadow">
           <div className="font-semibold tracking-wide">

@@ -93,8 +93,8 @@ export default function JugadorDetallePage() {
             onChange={(e) => setForm({ ...form, estado: e.target.value })}
             className="w-full px-3 py-2 border rounded-md"
           >
-            <option value="activo">Activo</option>
-            <option value="inactivo">Inactivo</option>
+                     <option value="activo">✅ Activo</option>
+            <option value="inactivo">⛔ Inactivo</option>
           </select>
         </div>
 
